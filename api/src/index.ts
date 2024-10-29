@@ -4,7 +4,7 @@ import swaggerJsdoc from 'swagger-jsdoc';
 import routes from './routes';
 
 const app: Application = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
@@ -16,11 +16,7 @@ const swaggerOptions = {
       version: '1.0.0',
       description: 'A simple Express API application',
     },
-    servers: [
-      {
-        url: 'http://localhost:3000',
-      },
-    ],
+    servers: [],
   },
   apis: ['./src/routes/*.ts'], // Aquí especificamos los archivos de rutas para la documentación
 };

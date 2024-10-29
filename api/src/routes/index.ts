@@ -4,15 +4,15 @@ const router = Router();
 
 /**
  * @openapi
- * /api/hello:
+ * /api/healthz:
  *   get:
- *     description: Responds with a greeting message
+ *     description: Responds for a health check status
  *     responses:
  *       200:
- *         description: A greeting message
+ *         description: OK
  */
-router.get('/hello', (req: Request, res: Response) => {
-  res.json({ message: 'Hello from Express with TypeScript!' });
+router.get('/healthz', (req: Request, res: Response) => {
+  res.json({ status: 'UP' });
 });
 
 export default router;
