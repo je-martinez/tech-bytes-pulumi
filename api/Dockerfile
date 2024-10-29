@@ -1,5 +1,5 @@
 # Etapa 1: Build
-FROM node:18-alpine AS builder
+FROM --platform=linux/amd64  node:18-alpine AS builder
 
 # Crear directorio de la aplicación
 WORKDIR /app

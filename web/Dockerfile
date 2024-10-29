@@ -1,5 +1,5 @@
 # Etapa de construcción
-FROM node:18-alpine AS build
+FROM --platform=linux/amd64 node:18-alpine AS build
 
 # Establece el directorio de trabajo en el contenedor
 WORKDIR /app
