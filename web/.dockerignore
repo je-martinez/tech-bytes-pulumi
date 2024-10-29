@@ -1,0 +1,7 @@
+# Ignorar node_modules para evitar copiarlo innecesariamente
+node_modules
+dist
+.git
+.vscode
+.env
+.DS_Store
