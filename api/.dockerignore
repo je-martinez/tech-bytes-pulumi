@@ -1,0 +1,16 @@
+# Ignorar node_modules y archivos generados por el entorno local
+node_modules
+dist
+coverage
+npm-debug.log
+yarn-error.log
+
+# Ignorar archivos de configuración que no son necesarios para la imagen Docker
+.eslintrc.json
+.prettierrc
+tsconfig.json
+docker-compose.yml
+Dockerfile
+
+# Ignorar carpetas de control de versiones
+.git
