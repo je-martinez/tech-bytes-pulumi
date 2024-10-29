@@ -8,7 +8,6 @@ yarn-error.log
 # Ignorar archivos de configuración que no son necesarios para la imagen Docker
 .eslintrc.json
 .prettierrc
-tsconfig.json
 docker-compose.yml
 Dockerfile
 

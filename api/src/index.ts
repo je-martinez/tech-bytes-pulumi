@@ -2,9 +2,10 @@ import express, { Application, Request, Response } from 'express';
 import swaggerUi from 'swagger-ui-express';
 import swaggerJsdoc from 'swagger-jsdoc';
 import routes from './routes';
+import path from 'path';
 
 const app: Application = express();
-const port = process.env.PORT || 3000;
+const port = 3000;
 
 app.use(express.json());
 
@@ -16,9 +17,8 @@ const swaggerOptions = {
       version: '1.0.0',
       description: 'A simple Express API application',
     },
-    servers: [],
   },
-  apis: ['./src/routes/*.ts'], // Aquí especificamos los archivos de rutas para la documentación
+  apis: ['./src/routes/*.ts', './dist/routes/*.js'], // Agregar soporte para .js en producción
 };
 
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
