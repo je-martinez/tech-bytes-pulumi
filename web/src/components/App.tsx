@@ -17,6 +17,12 @@ function App() {
             <p className="mt-4 text-xl text-gray-500">
               This is a boilerplate build with Vite, React 18, TypeScript,
               Vitest, Testing Library, TailwindCSS 3, Eslint and Prettier.
+              <br />
+              <br /> You are on the {''}
+              <text className="font-extrabold">
+                {import.meta.env.VITE_ENV}
+              </text>{' '}
+              environment.
             </p>
           </div>
           <div className="my-10">
