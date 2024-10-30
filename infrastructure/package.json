@@ -7,6 +7,7 @@
     },
     "dependencies": {
         "@pulumi/digitalocean": "^4.34.0",
+        "@pulumi/github": "^6.3.2",
         "@pulumi/pulumi": "^3.113.0",
         "dotenv": "^16.4.5"
     }

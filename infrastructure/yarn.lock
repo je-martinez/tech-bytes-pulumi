@@ -379,6 +379,13 @@
     read-package-tree "^5.2.1"
     resolve "^1.7.1"
 
+"@pulumi/github@^6.3.2":
+  version "6.3.2"
+  resolved "https://registry.yarnpkg.com/@pulumi/github/-/github-6.3.2.tgz#17e51033e64993dd7df44a15db5ecd99ed88624f"
+  integrity sha512-t3dWU0X+2F5/e8R3Kp7AnOKgX7OQ9Qc2uYbhOTem2MJXN9ZUx8ywFSZuJzdk1vb8CxaAgkUiMyBAH3B6zfOPYA==
+  dependencies:
+    "@pulumi/pulumi" "^3.136.0"
+
 "@pulumi/pulumi@^3.113.0", "@pulumi/pulumi@^3.136.0":
   version "3.137.0"
   resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.137.0.tgz#670636d20eb85880854a49623947d6ea23099742"
