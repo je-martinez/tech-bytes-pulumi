@@ -17,7 +17,7 @@ router.get('/healthz', (req: Request, res: Response) => {
   res.json({ status: 'UP' });
 });
 
-router.get('/todos', (req: Request, res: Response) => {
+router.get('/tasks', (req: Request, res: Response) => {
   const jsonPath = path.join(__dirname, 'data.json');
   fs.readFile(jsonPath, 'utf8', (err, data) => {
     if (err) {

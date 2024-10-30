@@ -3,11 +3,13 @@ import swaggerUi from 'swagger-ui-express';
 import swaggerJsdoc from 'swagger-jsdoc';
 import routes from './routes';
 import dotenv from 'dotenv';
+import cors from 'cors';
 dotenv.config();
 
 const app: Application = express();
 const port = 3000;
 
+app.use(cors());
 app.use(express.json());
 
 const swaggerOptions = {
