@@ -2,7 +2,8 @@ import express, { Application, Request, Response } from 'express';
 import swaggerUi from 'swagger-ui-express';
 import swaggerJsdoc from 'swagger-jsdoc';
 import routes from './routes';
-import path from 'path';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app: Application = express();
 const port = 3000;
@@ -15,7 +16,9 @@ const swaggerOptions = {
     info: {
       title: 'Express API with Swagger',
       version: '1.0.0',
-      description: 'A simple Express API application',
+      description:
+        'A simple Express API application - Environment: ' +
+          process.env.NODE_ENV || 'Local',
     },
   },
   apis: ['./src/routes/*.ts', './dist/routes/*.js'], // Agregar soporte para .js en producción
