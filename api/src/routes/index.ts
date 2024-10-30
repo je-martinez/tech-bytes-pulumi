@@ -11,12 +11,21 @@ const router = Router();
  *     description: Responds for a health check status
  *     responses:
  *       200:
- *         description: OK
+ *         description: Success
  */
 router.get('/healthz', (req: Request, res: Response) => {
-  res.json({ status: 'UP' });
+  res.json({ status: 'UP', env: process?.env?.NODE_ENV ?? 'local' });
 });
 
+/**
+ * @openapi
+ * /api/tasks:
+ *   get:
+ *     description: Get a list of tasks
+ *     responses:
+ *       200:
+ *         description: Success
+ */
 router.get('/tasks', (req: Request, res: Response) => {
   const jsonPath = path.join(__dirname, 'data.json');
   fs.readFile(jsonPath, 'utf8', (err, data) => {

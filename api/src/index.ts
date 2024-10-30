@@ -20,7 +20,7 @@ const swaggerOptions = {
       version: '1.0.0',
       description:
         'A simple Express API application - Environment: ' +
-          process.env.NODE_ENV || 'Local',
+        `<b>${process?.env?.NODE_ENV ?? 'Local'}</b>`,
     },
   },
   apis: ['./src/routes/*.ts', './dist/routes/*.js'], // Agregar soporte para .js en producción
