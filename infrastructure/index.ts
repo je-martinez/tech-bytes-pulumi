@@ -33,7 +33,7 @@ const setup = async () => {
    *                  Creating a new Digital Ocean App
    *========================================================================**/
   const branch = config.require("repository-branch");
-  const apiName = `tech-bytes-web-api-${envName}`;
+  const apiName = `tech-bytes-api-${envName}`;
   const api = new digitalocean.App(
     apiName,
     {
@@ -53,12 +53,6 @@ const setup = async () => {
             buildCommand: "npm install && npm run build",
             runCommand: "npm start",
             httpPort: 8000,
-            routes: [
-              {
-                path: "/api",
-                preservePathPrefix: true,
-              },
-            ],
             instanceSizeSlug: "basic-xxs",
             instanceCount: 1,
             envs: [
