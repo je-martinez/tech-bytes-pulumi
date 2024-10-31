@@ -37,6 +37,7 @@ const setup = async () => {
   const api = new digitalocean.App(
     apiName,
     {
+      projectId: project.id,
       spec: {
         name: apiName,
         region: "nyc3",
