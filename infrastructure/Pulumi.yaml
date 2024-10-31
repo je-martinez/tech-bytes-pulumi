@@ -1,0 +1,11 @@
+name: infrastructure
+description: A minimal TypeScript Pulumi program
+runtime:
+  name: nodejs
+  options:
+    packagemanager: npm
+config:
+  infrastructure:repository: je-martinez/tech-bytes-pulumi
+  pulumi:tags:
+    value:
+      pulumi:template: typescript
