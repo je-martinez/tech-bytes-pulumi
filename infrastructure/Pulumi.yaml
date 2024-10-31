@@ -5,7 +5,9 @@ runtime:
   options:
     packagemanager: npm
 config:
+  infrastructure:projectName: Codexitos Internal
   infrastructure:repository: je-martinez/tech-bytes-pulumi
+  infrastructure:repository-branch: live
   pulumi:tags:
     value:
       pulumi:template: typescript
