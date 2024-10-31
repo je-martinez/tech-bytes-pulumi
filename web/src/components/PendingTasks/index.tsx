@@ -22,7 +22,7 @@ export default function PendingTasks() {
   const fetchTasks = async () => {
     setIsFetching(true)
     try {
-      const response = await fetch(`${apiUrl}/tasks`)
+      const response = await fetch(`${apiUrl}/api/tasks`)
       const data = await response.json()
       setTasks(data)
     } catch (error) {
