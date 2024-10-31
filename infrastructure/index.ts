@@ -29,18 +29,66 @@ const setup = async () => {
     { provider }
   );
 
+  /**========================================================================
+   *                  Creating a new Digital Ocean App
+   *========================================================================**/
   const branch = config.require("repository-branch");
+  const apiName = `tech-bytes-web-api-${envName}`;
+  const api = new digitalocean.App(
+    apiName,
+    {
+      spec: {
+        name: apiName,
+        region: "nyc3",
+        services: [
+          {
+            name: apiName,
+            //Don't forget to give access to the repository to your Digital Ocean Account
+            github: {
+              repo: repository.fullName,
+              branch,
+              deployOnPush: true,
+            },
+            sourceDir: "/api",
+            buildCommand: "npm install && npm run build",
+            runCommand: "npm start",
+            httpPort: 8000,
+            routes: [
+              {
+                path: "/api",
+                preservePathPrefix: true,
+              },
+            ],
+            instanceSizeSlug: "basic-xxs",
+            instanceCount: 1,
+            envs: [
+              {
+                key: "NODE_ENV",
+                scope: "RUN_AND_BUILD_TIME",
+                value: envName,
+              },
+            ],
+          },
+        ],
+      },
+    },
+    { provider }
+  );
 
+  /**========================================================================
+   *  Creating a new Digital Ocean App Using Ouputs from another resource
+   *========================================================================**/
+  const webAppName = `tech-bytes-web-app-${envName}`;
   const webApp = new digitalocean.App(
-    `tech-bytes-web-app-${envName}`,
+    webAppName,
     {
       projectId: project.id,
       spec: {
-        name: `tech-bytes-web-app-${envName}`,
+        name: webAppName,
         region: "nyc3",
         staticSites: [
           {
-            name: `tech-bytes-web-app-${envName}`,
+            name: webAppName,
             //Don't forget to give access to the repository to your Digital Ocean Account
             github: {
               repo: repository.fullName,
@@ -50,11 +98,23 @@ const setup = async () => {
             sourceDir: "/web",
             buildCommand: "npm install && npm run build",
             outputDir: "/dist",
+            envs: [
+              {
+                key: "VITE_ENV",
+                scope: "RUN_AND_BUILD_TIME",
+                value: envName,
+              },
+              {
+                key: "VITE_API_URL",
+                scope: "RUN_AND_BUILD_TIME",
+                value: api.liveUrl,
+              },
+            ],
           },
         ],
       },
     },
-    { provider }
+    { provider, dependsOn: [api] }
   );
 };
 
