@@ -1,1 +1,3 @@
 encryptionsalt: v1:VNBfKTLtLuA=:v1:ft0/eyjsd0wCrv/y:TRMFleKQdjlbGDO3srOlq5xx2Bz1Dw==
+config:
+  infrastructure:environment: staging
