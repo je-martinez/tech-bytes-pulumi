@@ -16,7 +16,7 @@ This is an Express.js API built with TypeScript, providing a RESTful service str
 ### Installation
 1. Clone the repository:
    ```bash
-   git clonehttps://github.com/je-martinez/tech-bytes-pulumi.git
+   git clone https://github.com/je-martinez/tech-bytes-pulumi.git
    ```
 2. Navigate to the project directory:
    ```bash
